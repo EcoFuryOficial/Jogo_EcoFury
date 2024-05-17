@@ -23,14 +23,14 @@ public class enemy : MonoBehaviour
     public float sightRange, attackRange; // Alcance de visão e alcance de ataque do inimigo
     public bool playerInSightRange, playerInAttackRange; // Verifica se o jogador está no alcance de visão ou alcance de ataque
     public float followDistance; // Distância de perseguição do jogador
-
-    private void Awake()
+    public void Start()
     {
         // Encontra o objeto do jogador e inicializa o NavMeshAgent do inimigo
         player = GameObject.Find("mano").transform;
         hunter = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>(); // Obtém o componente Animator
+        animator = GetComponent<Animator>();// Obtém o componente Animator
     }
+   
 
     private void Update()
     {
