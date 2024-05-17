@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject painelOptions;
   public void Jogar() 
     {
-        SceneManager.LoadScene("GAME");
+        SceneManager.LoadScene("Fase1");
     }
     public void AbrirOptions()
     {
