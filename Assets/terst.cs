@@ -12,7 +12,6 @@ public class terst : MonoBehaviour
     // variável que determina a velocidade do player
     public float velocity = 5f;
     public float velocityRun = 7f;
-    public float rotation = 180.0f;
 
     // variável que determina se esta ou não tocando o chão
     bool isGrounded = false;
@@ -37,8 +36,8 @@ public class terst : MonoBehaviour
     void Update()
     {
         // variáveis que determina as teclas e a direção do player
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Vertical");
+        float y = Input.GetAxis("Horizontal");
 
         // Verifica se o player está se movendo para frente ou para os lados
         andando = x != 0f || y != 0f;
@@ -50,9 +49,19 @@ public class terst : MonoBehaviour
         animator.SetBool("andando", andando);
         animator.SetBool("correndoParameter", correndoParameter);
 
-        // Move o personagem
-        Vector3 movement = new Vector3(x, 0, y) * (correndoParameter ? velocityRun : velocity) * Time.deltaTime;
-        transform.Translate(movement);
+        // Calcula a direção do movimento do jogador
+        Vector3 direction = new Vector3(x, 0, y).normalized;
+
+        // Move o personagem na direção do movimento
+        Vector3 movement = direction * (correndoParameter ? velocityRun : velocity) * Time.deltaTime;
+        transform.Translate(movement, Space.World);
+
+        // Rotaciona o personagem na direção do movimento (exceto se não estiver se movendo)
+        if (andando)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f); // Ajuste o último parâmetro conforme necessário
+        }
 
         // verifica se o player tem condição de pular, sendo elas, pressionar a tecla de pulo e estar no chão
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
