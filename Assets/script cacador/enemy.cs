@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class enemy : MonoBehaviour
     public void Start()
     {
         // Encontra o objeto do jogador e inicializa o NavMeshAgent do inimigo
-        player = GameObject.Find("mano").transform;
+        player = GameObject.Find("Play er").transform;
         hunter = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();// Obtém o componente Animator
     }
@@ -44,7 +45,7 @@ public class enemy : MonoBehaviour
                 if (Physics.Raycast(transform.position, directionToPlayer, out hit, sightRange, whatIsGround))
                 {
                     // Se um obstáculo estiver no caminho, o jogador não está à vista
-                    if (hit.collider.CompareTag("bagui"))
+                    if (hit.collider.CompareTag("wall"))
                     {
                         playerInSightRange = false;
                         return;
@@ -135,5 +136,13 @@ public class enemy : MonoBehaviour
     {
         // Reseta a flag de ataque
         alreadyAttacked = false;
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Play er"))
+        {
+            // Restart the scene
+            SceneManager.LoadScene("DS1");
+        }
     }
 }

@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 public class Intro : MonoBehaviour
 {
     [SerializeField] private GameObject painelContinue;
-    public void Continuar1()
+    public void Continuar()
     {
-        SceneManager.LoadScene("Desmatamento");
-    }
-    public void Continuar2()
-    {
-        SceneManager.LoadScene("Fase1");
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }

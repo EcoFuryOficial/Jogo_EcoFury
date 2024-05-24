@@ -24707,7 +24707,7 @@ Transform:
   m_GameObject: {fileID: 561298008}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 174.8, y: -34.9, z: 587.3}
+  m_LocalPosition: {x: 263, y: -34.9, z: 587.3}
   m_LocalScale: {x: 1, y: 1000, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88552,6 +88552,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2182347707962783412, guid: e042b0bac2b3f184ebb1b63c988df223, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3732689377543366991, guid: e042b0bac2b3f184ebb1b63c988df223, type: 3}
       propertyPath: m_Name
       value: hunter

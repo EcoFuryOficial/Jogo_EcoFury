@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class enemypatrol : MonoBehaviour
 {
-    public float speed = 10f; // Adjust this value to control the patrol speed
+    public float speed = 30f; // Adjust this value to control the patrol speed
     public float maxX = 2075;  // Adjust this value to set the maximum x position
 
     private bool movingRight = true; // Indicates whether the enemy is moving right or left
@@ -30,7 +30,7 @@ public class enemypatrol : MonoBehaviour
         if (other.CompareTag("Play er"))
         {
             // Restart the scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("DS2");
         }
     }
 }

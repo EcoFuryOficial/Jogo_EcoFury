@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class projectile : MonoBehaviour
+public class projectile2 : MonoBehaviour
 {
     public float speed = 10f;
     public float gravity = 9.81f; // Aceleração da gravidade
@@ -15,7 +15,7 @@ public class projectile : MonoBehaviour
         if (other.CompareTag("Play er"))
         {
             // Restart the scene
-            SceneManager.LoadScene("DS1");
+            SceneManager.LoadScene("DS3");
         }
     }
     

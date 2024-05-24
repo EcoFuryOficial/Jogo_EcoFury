@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject painelOptions;
   public void Jogar() 
     {
-        SceneManager.LoadScene("Fase1");
+        SceneManager.LoadScene("Intro");
     }
     public void AbrirOptions()
     {
@@ -22,7 +22,6 @@ public class MenuManager : MonoBehaviour
     }
     public void Sair()
     {
-        Debug.Log("Saindo do Jogo");
         Application.Quit();
     }
 }
