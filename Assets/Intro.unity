@@ -347,7 +347,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 416597755}
         m_TargetAssemblyTypeName: Intro, Assembly-CSharp
-        m_MethodName: Continuar1
+        m_MethodName: Continuar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
